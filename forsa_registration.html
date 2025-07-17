@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte - ForsaFinder</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Réutilisation des styles existants */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a7a5a 0%, #2d8659 25%, #4fa66d 50%, #71c481 75%, #93e195 100%);
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .wave-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a7a5a 0%, #2d8659 25%, #4fa66d 50%, #71c481 75%, #93e195 100%);
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%2371c481'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%234fa66d'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%232d8659'/%3E%3C/svg%3E") repeat-x;
+            animation: wave 15s cubic-bezier(.55,.5,.45,.5) infinite;
+            opacity: 0.6;
+        }
+
+        .wave:nth-child(2) {
+            bottom: 0;
+            animation: wave-reverse 20s cubic-bezier(.55,.5,.45,.5) infinite;
+            opacity: 0.4;
+        }
+
+        .wave:nth-child(3) {
+            bottom: 0;
+            animation: wave 25s cubic-bezier(.55,.5,.45,.5) infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-25%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes wave-reverse {
+            0% { transform: translateX(-50%); }
+            50% { transform: translateX(-25%); }
+            100% { transform: translateX(0); }
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(26, 122, 90, 0.95) 0%, rgba(45, 134, 89, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 8px 32px rgba(26, 122, 90, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #71c481, #93e195);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1a7a5a;
+            box-shadow: 0 4px 15px rgba(113, 196, 129, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #71c481, #93e195);
+            color: #1a7a5a;
+            box-shadow: 0 4px 15px rgba(113, 196, 129, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(113, 196, 129, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+        }
+        
+        /* Conteneur d'inscription */
+        .register-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .register-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            animation: fadeInUp 1s ease-out;
+            text-align: center;
+        }
+        
+        .register-card h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            text-align: left;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border-radius: 15px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(113, 196, 129, 0.5);
+        }
+        
+        .form-icon {
+            position: absolute;
+            left: 15px;
+            top: 43px;
+            color: #1a7a5a;
+            font-size: 1.2rem;
+        }
+        
+        .register-btn {
+            background: linear-gradient(135deg, #1a7a5a, #2d8659);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(26, 122, 90, 0.4);
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 122, 90, 0.6);
+        }
+        
+        .login-link {
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 1.5rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .login-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .password-strength {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .strength-bar {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+        
+        .strength-bar.active {
+            background: #71c481;
+        }
+        
+        .password-rules {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: left;
+        }
+        
+        .password-rules ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .password-rules li {
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #71c481;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #71c481;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #71c481;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .register-card {
+                padding: 2rem;
+            }
+            
+            .register-card h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .register-card {
+                padding: 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(113, 196, 129, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(113, 196, 129, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(113, 196, 129, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wave-bg">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div>
+                    <div class="english-text" style="font-size: 1.2rem;">ForsaFinder</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Mon Opportunité</div>
+                </div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="forsa-fr.html">Accueil</a>
+                <a href="forsa_login.html">Se connecter</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="register-container">
+        <div class="register-card">
+            <h2>Créer un compte</h2>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">Rejoignez notre communauté et découvrez de nouvelles opportunités</p>
+            
+            <form class="register-form" id="registerForm">
+                <div class="form-group">
+                    <label for="fullname">Nom complet</label>
+                    <div class="form-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="fullname" name="fullname" placeholder="Votre nom complet" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Adresse e-mail</label>
+                    <div class="form-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <div class="form-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    
+                    <div class="password-strength">
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                    </div>
+                    
+                    <div class="password-rules">
+                        <p>Votre mot de passe doit contenir :</p>
+                        <ul>
+                            <li>Au moins 8 caractères</li>
+                            <li>Une majuscule et une minuscule</li>
+                            <li>Un chiffre</li>
+                            <li>Un caractère spécial</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirmer le mot de passe</label>
+                    <div class="form-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="register-btn">
+                    <i class="fas fa-user-plus"></i>
+                    Créer un compte
+                </button>
+                
+                <a href="forsa_login.html" class="login-link">Vous avez déjà un compte ? Connectez-vous</a>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>ForsaFinder</h3>
+                <p>La première plateforme au Maroc reliant les étudiants aux opportunités de stages et d'emploi.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#jobs">Emplois</a></li>
+                    <li><a href="#internships">Stages</a></li>
+                    <li><a href="#guidance">Orientation</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Pour les entreprises</h3>
+                <ul>
+                    <li><a href="#post-job">Publier une offre</a></li>
+                    <li><a href="#pricing">Tarifs</a></li>
+                    <li><a href="#success">Success stories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> info@forsafinder.ma</li>
+                    <li><i class="fas fa-phone"></i> +212 5XX-XXXXXX</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 ForsaFinder. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion du formulaire d'inscription
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupération des valeurs
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Validation simple
+            if (!fullname || !email || !password || !confirmPassword) {
+                alert('Veuillez remplir tous les champs.');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Les mots de passe ne correspondent pas.');
+                return;
+            }
+            
+            // Simuler une inscription réussie
+            alert(`Inscription réussie pour ${fullname} avec l'email: ${email}`);
+            
+            // Redirection vers le tableau de bord
+            // window.location.href = 'dashboard.html';
+        });
+        
+        // Animation de l'arrière-plan
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const waves = document.querySelectorAll('.wave');
+            
+            waves.forEach((wave, index) => {
+                const speed = (index + 1) * 0.5;
+                wave.style.transform = `translateX(${-scrollY * speed / 20}px)`;
+            });
+        });
+        
+        // Animation de la barre de force du mot de passe
+        const passwordInput = document.getElementById('password');
+        const strengthBars = document.querySelectorAll('.strength-bar');
+        
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            
+            // Longueur minimale
+            if (password.length >= 8) strength++;
+            
+            // Contient une majuscule
+            if (/[A-Z]/.test(password)) strength++;
+            
+            // Contient un chiffre
+            if (/[0-9]/.test(password)) strength++;
+            
+            // Contient un caractère spécial
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            // Mise à jour des barres de force
+            strengthBars.forEach((bar, index) => {
+                if (index < strength) {
+                    bar.classList.add('active');
+                } else {
+                    bar.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
