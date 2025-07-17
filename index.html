@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ForsaFinder - فرصتي</title>
+    <title>ForsaFinder - Mon Opportunité</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-
+    
+</head>
 <body>
     <div class="wave-bg">
         <div class="wave"></div>
         <div class="wave"></div>
         <div class="wave"></div>
     </div>
-
     <!-- Header -->
     <header class="header">
         <nav class="nav-container">
@@ -23,46 +22,66 @@
                 </div>
                 <div>
                     <div class="english-text" style="font-size: 1.2rem;">ForsaFinder</div>
-                    <div style="font-size: 0.9rem; opacity: 0.8;">فرصتي</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Mon Opportunité</div>
                 </div>
             </div>
             
             <div class="nav-links">
-                <a href="#home">الرئيسية</a>
-                <a href="#jobs">الوظائف</a>
-                <a href="#internships">التدريب</a>
-                <a href="#guidance">التوجيه</a>
-                <a href="#about">من نحن</a>
-                <a href="#login" class="btn-secondary">تسجيل الدخول</a>
-                <a href="#register" class="btn-primary">إنشاء حساب</a>
+                <a href="#home">Accueil</a>
+                <a href="#jobs">Emplois</a>
+                <a href="#internships">Stages</a>
+                <a href="#guidance">Orientation</a>
+                <a href="#about">À propos</a>
+                <a href="forsa_login.html" class="btn-secondary">Connexion</a>
+                <a href="forsa_registration.html" class="btn-primary">Créer un compte</a>
             </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-links">
+            <a href="#home">Accueil</a>
+            <a href="#jobs">Emplois</a>
+            <a href="#internships">Stages</a>
+            <a href="#guidance">Orientation</a>
+            <a href="#about">À propos</a>
+            <a href="#login">Connexion</a>
+            <a href="#register">Créer un compte</a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-card">
-                <h1>فرصتك لاكتشاف الفرص المغرب</h1>
-                <p class="subtitle">منصة متخصصة رائدة برامج متخصصة واحدة!</p>
+                <h1>Votre opportunité de découvrir les opportunités au Maroc</h1>
+                <p class="subtitle">Plateforme leader spécialisée qui rassemble toutes les opportunités en un seul endroit !</p>
                 
                 <div class="search-box">
-                    <input type="text" placeholder="ابحث عن فرص التدريب أو الوظائف...">
+                    <input type="text" placeholder="Recherchez des stages ou des emplois...">
                     <select>
-                        <option>اختر المدينة</option>
-                        <option>الدار البيضاء</option>
-                        <option>الرباط</option>
-                        <option>مراكش</option>
-                        <option>فاس</option>
-                        <option>طنجة</option>
+                        <option>Choisissez une ville</option>
+                        <option>Casablanca</option>
+                        <option>Rabat</option>
+                        <option>Marrakech</option>
+                        <option>Fès</option>
+                        <option>Tanger</option>
                     </select>
                     <select>
-                        <option>اختر التخصص</option>
-                        <option>الهندسة</option>
-                        <option>التجارة</option>
-                        <option>التكنولوجيا</option>
-                        <option>الطب</option>
-                        <option>القانون</option>
+                        <option>Choisissez une spécialité</option>
+                        <option>Ingénierie</option>
+                        <option>Commerce</option>
+                        <option>Technologie</option>
+                        <option>Médecine</option>
+                        <option>Droit</option>
                     </select>
                     <button class="search-btn">
                         <i class="fas fa-search"></i>
@@ -72,11 +91,11 @@
                 <div class="hero-buttons">
                     <a href="#register" class="btn-hero btn-hero-primary">
                         <i class="fas fa-rocket"></i>
-                        ابدأ رحلتك الآن
+                        Commencez votre voyage maintenant
                     </a>
                     <a href="#about" class="btn-hero btn-hero-secondary">
                         <i class="fas fa-play-circle"></i>
-                        اكتشف الفرص
+                        Découvrez les opportunités
                     </a>
                 </div>
             </div>
@@ -88,19 +107,19 @@
         <div class="stats-container">
             <div class="stat-card">
                 <h3>10,000+</h3>
-                <p>طالب مسجل</p>
+                <p>Étudiants inscrits</p>
             </div>
             <div class="stat-card">
                 <h3>500+</h3>
-                <p>شركة موثوقة</p>
+                <p>Entreprises de confiance</p>
             </div>
             <div class="stat-card">
                 <h3>2,500+</h3>
-                <p>فرصة متاحة</p>
+                <p>Opportunités disponibles</p>
             </div>
             <div class="stat-card">
                 <h3>95%</h3>
-                <p>معدل نجاح</p>
+                <p>Taux de réussite</p>
             </div>
         </div>
     </section>
@@ -108,55 +127,55 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="features-container">
-            <h2 class="section-title">بطاقة الفرص</h2>
+            <h2 class="section-title">Caractéristiques de la plateforme</h2>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-flask"></i>
+                        <i class="fas fa-briefcase"></i>
                     </div>
-                    <h3>مسابقة للمتخصص في فقص الحلوم</h3>
-                    <p>فلوجا كلم - العطليبن</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>منحة الدراسية الجميع العنتدن</h3>
-                    <p>باخ - المقتجن</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>مسابقة الإبداع التنسيق البين الإنث</h3>
-                    <p>أولى - الجخت</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>بحث ذكي متطور</h3>
-                    <p>ابحث عن الفرص المناسبة لتخصصك ومهاراتك بنظام ذكي يوفر لك أفضل النتائج</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>شبكة واسعة</h3>
-                    <p>تواصل مع أكثر من 500 شركة وآلاف الطلبة والمرشدين المهنيين في جميع أنحاء المغرب</p>
+                    <h3>Stages dans les grandes entreprises</h3>
+                    <p>Opportunités de stage exceptionnelles dans les entreprises leaders au Maroc pour développer vos compétences</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>توجيه مهني</h3>
-                    <p>احصل على استشارات مهنية من خبراء في مجالك لتطوير مسارك المهني</p>
+                    <h3>Bourses pour étudiants excellents</h3>
+                    <p>Bourses d'études au Maroc et à l'étranger pour les étudiants académiquement distingués</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Concours créatifs et innovants</h3>
+                    <p>Concours qui vous permettent de présenter vos talents et de découvrir vos capacités</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Recherche intelligente avancée</h3>
+                    <p>Trouvez des opportunités adaptées à votre spécialité avec un système intelligent</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Réseau professionnel étendu</h3>
+                    <p>Connectez-vous avec plus de 500 entreprises et des milliers d'étudiants à travers le Maroc</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Orientation professionnelle</h3>
+                    <p>Bénéficiez de conseils d'experts pour développer votre parcours professionnel</p>
                 </div>
             </div>
         </div>
@@ -165,18 +184,20 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="cta-container">
-            <h2>ابدأ رحلتك المهنية اليوم!</h2>
-            <p>انضم إلى آلاف الطلبة الذين وجدوا فرصهم المثالية واكتشف عالماً جديداً من الإمكانيات</p>
-            
-            <div class="cta-buttons">
-                <a href="#register" class="btn-white">
-                    <i class="fas fa-user-graduate"></i>
-                    للطلبة - سجل مجاناً
-                </a>
-                <a href="#companies" class="btn-white">
-                    <i class="fas fa-building"></i>
-                    للشركات - انضم إلينا
-                </a>
+            <div class="cta-card">
+                <h2>Commencez votre parcours professionnel aujourd'hui !</h2>
+                <p>Rejoignez les milliers d'étudiants qui ont trouvé leurs opportunités idéales</p>
+                
+                <div class="cta-buttons">
+                    <a href="#register" class="btn-cta">
+                        <i class="fas fa-user-graduate"></i>
+                        Étudiants - Inscrivez-vous gratuitement
+                    </a>
+                    <a href="#companies" class="btn-cta">
+                        <i class="fas fa-building"></i>
+                        Entreprises - Rejoignez-nous
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -186,7 +207,7 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h3>ForsaFinder</h3>
-                <p>المنصة الأولى في المغرب لربط الطلبة بفرص التدريب والعمل والتوجيه المهني.</p>
+                <p>La première plateforme au Maroc reliant les étudiants aux opportunités de stages et d'emploi.</p>
                 <div style="margin-top: 1rem;">
                     <a href="#" style="margin-left: 1rem; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
                     <a href="#" style="margin-left: 1rem; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
@@ -196,38 +217,41 @@
             </div>
             
             <div class="footer-section">
-                <h3>روابط سريعة</h3>
+                <h3>Liens rapides</h3>
                 <ul>
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#jobs">الوظائف</a></li>
-                    <li><a href="#internships">التدريب</a></li>
-                    <li><a href="#guidance">التوجيه المهني</a></li>
-                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#jobs">Emplois</a></li>
+                    <li><a href="#internships">Stages</a></li>
+                    <li><a href="#guidance">Orientation professionnelle</a></li>
+                    <li><a href="#about">À propos</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>للشركات</h3>
+                <h3>Pour les entreprises</h3>
                 <ul>
-                    <li><a href="#post-job">نشر وظيفة</a></li>
-                    <li><a href="#pricing">الأسعار</a></li>
-                    <li><a href="#success-stories">قصص النجاح</a></li>
-                    <li><a href="#support">الدعم الفني</a></li>
+                    <li><a href="#post-job">Publier une offre</a></li>
+                    <li><a href="#pricing">Tarifs</a></li>
+                    <li><a href="#success-stories">Success stories</a></li>
+                    <li><a href="#support">Support technique</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>تواصل معنا</h3>
+                <h3>Contactez-nous</h3>
                 <ul>
                     <li><i class="fas fa-envelope"></i> info@forsafinder.ma</li>
                     <li><i class="fas fa-phone"></i> +212 5XX-XXXXXX</li>
-                    <li><i class="fas fa-map-marker-alt"></i> الدار البيضاء، المغرب</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2024 ForsaFinder. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2024 ForsaFinder. Tous droits réservés.</p>
         </div>
     </footer>
-    
+  <script src="script.js"></script>
+
+    </body>
+</html>
